@@ -1,0 +1,52 @@
+import java.util.Scanner;
+public class AprenderJava {
+
+    public static void main(String[] args) {
+
+      Scanner sc = new Scanner (System.in);
+
+      System.out.println("Insira o valo de X");
+        double x = sc.nextDouble();
+      System.out.println(" Insira o valor de y");
+        double y = sc.nextDouble();
+
+      if (x == 0.0 & y == 0.0) {
+          System.out.println("Origem");
+
+        }else{
+          if(x < 0 & y == 0 ){
+              System.out.println("O ponto está no eixo X");
+
+          }else {
+              if (x < 0 & y == 0 || x > 0 & y == 0) {
+              System.out.println("O ponto está no eixo x");
+
+              }else {
+                  if (x == 0 & y < 0 || x == 0 & y > 0) {
+                      System.out.println("O ponto está no eixo y");
+
+                  }else{
+                      if (x < 0 & y > 0){
+                          System.out.println("O ponto esta em Q2");
+
+                      }else{
+                          if(x < 0 & y < 0){
+                              System.out.println("O ponto está em Q3");
+
+                          }else{
+                              if(x > 0 & y > 0){
+                                  System.out.println("O ponto está em Q1");
+
+                              }else{
+                                  if (x > 0 & y < 0){
+                                      System.out.println("O ponto está em Q4");
+                                  }
+                        
+                                  sc.close;
+                              }
+                          }
+                      }
+                  }
+              }
+          }
+
