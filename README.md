@@ -1,3 +1,7 @@
+
+
+
+
 import java.util.Scanner;
 public class AprenderJava {
 
@@ -5,7 +9,7 @@ public class AprenderJava {
 
       Scanner sc = new Scanner (System.in);
 
-      System.out.println("Insira sua renda mensal para analise de imposto:");
+      System.out.println("Insir sua renda mensal para analise de imposto:");
 
       double salario = sc.nextDouble();
       double imposto;
