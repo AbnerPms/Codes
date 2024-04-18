@@ -1,0 +1,109 @@
+import entities.Account;
+import java.util.Scanner;
+
+public class AprenderJava {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Vamos prosseguir com o seu cadastra bancário");
+        System.out.print("Insira o numero da conta: ");
+        int numeroConta = sc.nextInt();
+        System.out.print("Insira seu nome: ");
+        sc.nextLine();
+        String nome = sc.nextLine();
+
+        System.out.print("Gostaria de fazer um depósito bancário (S/N)?");
+        char resposta = sc.next().charAt(0);
+
+        Account account;
+
+        System.out.println();
+
+             if (resposta == 's') {
+                 System.out.print("Insira a quantidade para depósito: ");
+                 double depositoInicial = sc.nextDouble();
+
+                 account = new Account(numeroConta, nome, depositoInicial);  //Tem que estar depois da entrada do dado
+                 System.out.println();
+
+                 System.out.println("CONTA CRIADA");
+                 System.out.println("INFORMAÇÕES DA CONTA = " + account);
+                 System.out.println();
+             } else {
+                 account = new Account(numeroConta, nome);
+             }
+                 System.out.println("INFORMAÇÕES DA CONTA");
+                 System.out.println(account);
+                 System.out.print("Faça outro deposito: ");
+                 double depositoValor = sc.nextDouble();
+                 System.out.println();
+                 account.deposito(depositoValor);
+                 System.out.println("(Depósito realizado, conta atualizada)");
+                 System.out.println(account);
+                 System.out.println();
+
+             System.out.print("Faça seu primeiro saque: ");
+             System.out.println();
+             double saque = sc.nextDouble();
+             System.out.println("(Saque realizado, conta atualizada)");
+             System.out.println("Saldo atual: " + account.saque(saque) + "/ Taxa Cobrada -> 5 reais");
+
+    }
+}
+
+//classe Account 
+package entities;
+
+public class Account {
+
+    private int numeroConta;
+    private String titular;
+    private double saldo;
+
+    public Account (int numeroConta, String nome){
+        this.numeroConta = numeroConta;
+        this.titular = nome;
+
+    }
+    public Account (int numeroConta, String titular, double depositoInicial){
+        this.numeroConta = numeroConta;
+        this.titular = titular;
+        deposito(depositoInicial);
+    }
+    //Getters e Setters
+    public int getNumeroConta(){
+        return numeroConta;
+    }
+    public String getTitular(){
+        return titular;
+    }
+    public void setNumeroConta(String titular){
+        this.titular = titular;
+
+    }
+    public double getSaldo(){
+        return saldo;
+    }
+
+
+    //metodos de operação de deposito e saque
+    public double deposito(double deposito){
+        return saldo += deposito;
+    }
+    public double saque(double saque){
+        return saldo - saque - 5;
+    }
+
+    public String toString(){
+        return "Conta:"
+                + numeroConta + " "
+                + "Titular:"
+                + titular + " "
+                + "Saldo:"
+                + saldo;
+    }
+ }
+
+
