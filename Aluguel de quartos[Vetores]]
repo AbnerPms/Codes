@@ -1,0 +1,66 @@
+import entities.Studant;
+
+import javax.swing.plaf.synth.SynthOptionPaneUI;
+import java.util.Scanner;
+
+public class AprenderJava {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        Studant[] room = new Studant[10];
+
+        System.out.println("Quantos estudantes irão alugar os quartos? ");
+        int n = sc.nextInt();
+        sc.nextLine();
+        for (int i = 0; i < n; i++) {
+            System.out.print("Insira o nome: ");
+            String name = sc.nextLine();
+            System.out.print("insira o email: ");
+            String email = sc.nextLine();
+            System.out.print("Qual quarto deseja alugar? ");
+            int numRoom = sc.nextInt();
+            System.out.println("........................");
+            sc.nextLine();
+            room[numRoom] = new Studant(name, email, numRoom);
+
+        }
+        System.out.println("QUARTOS ALUGADOS: ");
+        System.out.println();
+        for (int i = 0; i < 10; i++){
+            if (room[i] != null){
+                System.out.println(room[i]);
+            }
+        }
+    }
+}
+
+............................................................................
+
+package entities;
+
+public class Studant {
+
+    private String name;
+    private String email;
+    private int numRoom;
+
+
+    public Studant(String name, String email, int numRoom){
+        this.name = name;
+        this.email = email;
+        this.numRoom = numRoom;
+    }
+    public String getName(){
+        return name;
+    }
+    public String getEmail(){
+        return email;
+    }
+    public int getNumRoom(){
+        return numRoom;
+    }
+    public String toString() {
+        return "Proprietário: " + name + ", " + email + ", N°" + numRoom;
+    }
+ }
+
